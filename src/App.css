@@ -1,0 +1,77 @@
+.app {
+  text-align: center;
+}
+
+.header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.title {
+  font-size: 2em;
+  margin: 120px;
+}
+
+#fork {
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  border: 0;
+}
+
+.logo {
+  position: absolute;
+  display: block;
+  left: 29%;
+  top: 15%;
+  margin-top: -50px;
+  width: 10px;
+  height: 10px;
+  overflow: visible;
+}
+
+.group {
+  transform-origin: 50% 50%;
+}
+
+.out {
+  stroke: SlateGrey;
+  stroke-dasharray: 700, 700;
+  stroke-dashoffset: 700;
+  animation: out-anim 5s 1s infinite;
+}
+
+.in {
+  fill:#222;
+  stroke: chartreuse;
+  stroke-dasharray: 700, 700;
+  stroke-dashoffset: 700;
+  animation: in-anim 5s 1s infinite;
+  z-index: 5;
+}
+
+@keyframes out-anim {
+  0% {
+    fill: #222;
+  }
+  50% {
+    fill: green;
+  }
+  75% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    fill: #222;
+  }
+}
+
+@keyframes in-anim {
+  25% {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+

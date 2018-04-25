@@ -1,0 +1,15 @@
+a {
+    color: chartreuse;
+    text-decoration: none;
+}
+
+h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+}
