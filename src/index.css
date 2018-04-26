@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
 body {
   margin: 0;
   padding: 0;
   background: #fafafa url('back.png'); /* http://subtlepatterns.com/subtle-grey/ */
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Comfortaa', cursive;
 }

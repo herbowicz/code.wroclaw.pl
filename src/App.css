@@ -1,17 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
 .app {
   text-align: center;
-}
-
-.header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.title {
-  font-size: 2em;
-  margin: 120px;
 }
 
 #fork {
@@ -21,19 +11,24 @@
   border: 0;
 }
 
-.logo {
-  position: absolute;
-  display: block;
-  left: 29%;
-  top: 15%;
-  margin-top: -50px;
-  width: 10px;
-  height: 10px;
-  overflow: visible;
+.header {
+  background-color: darkslategray;
+  height: 150px;
+  color: #393939;
 }
 
-.group {
-  transform-origin: 50% 50%;
+
+
+.logo {
+  position: absolute;
+  margin: auto;
+  left: 100px;
+  right: 0;
+  top: -350px;
+  bottom: 0;
+  width: 100px;
+  height: 100px;
+  overflow: visible;
 }
 
 .out {
@@ -54,7 +49,7 @@
 
 @keyframes out-anim {
   0% {
-    fill: #222;
+    fill: #393939;
   }
   50% {
     fill: green;
@@ -63,7 +58,7 @@
     stroke-dashoffset: 0;
   }
   100% {
-    fill: #222;
+    fill: #393939;
   }
 }
 
