@@ -16,7 +16,7 @@ class Coders extends Component {
 
     fetchData = async (page) => {
         this.setState({ isLoading: true })
-        const response = await fetch(`https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=40&page=${page}`)
+        const response = await fetch(`https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=80&page=${page}`)
         const coders = await response.json()
         this.setState({
             coders: this.state.coders.concat(coders.items)
@@ -42,16 +42,17 @@ class Coders extends Component {
     }
 
     render() {
+        const { coders, user, isLoading } = this.state;
         return (
             <div>
                 <div className="list" >
-                    {this.state.coders && this.state.coders.map((coder) =>
+                    {coders && coders.map((coder) =>
                         <span key={coder.id} onMouseOver={() => this.fetchUser(coder.login)} onMouseLeave={this.clear}>
-                            <Coder coder={coder} user={this.state.user} />
+                            <Coder coder={coder} user={user} />
                         </span>)}
                 </div>
                 <div>
-                    {this.state.isLoading && "Loading..."}
+                    {isLoading && "Loading..."}
                     <button onClick={this.showMore}>Show more coders</button>
                 </div>
             </div>

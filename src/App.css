@@ -12,18 +12,19 @@
 }
 
 .header {
-  background-color: #393939;
+  background: -moz-linear-gradient(left, #87e0fd 0%, #318c66 42%, #5c048c 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #87e0fd 0%,#318c66 42%,#5c048c 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #87e0fd 0%,#318c66 42%,#5c048c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#5c048c',GradientType=1 ); /* IE6-9 */
   height: 150px;
 }
-
-
 
 .logo {
   position: absolute;
   margin: auto;
   left: 100px;
   right: 0;
-  top: -350px;
+  top: -666px;
   bottom: 0;
   width: 100px;
   height: 100px;

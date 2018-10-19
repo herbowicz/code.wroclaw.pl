@@ -19,8 +19,8 @@ img, .info {
 
 .info {
     position: absolute;
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     color: LawnGreen;
     font-size: 2.25vh;
     font-weight: bold;
