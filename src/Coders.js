@@ -9,31 +9,12 @@ class Coders extends Component {
         coders: [],
         page: 1,
         isLoading: false,
-        user: {},
-        items: Array.from({ length: 20 })
+        user: {}
     }
 
     componentDidMount() {
         this.fetchData()
     }
-
-    fetchMoreData = async () => {
-        // a fake async api call like which sends 20 more records in 1.5 secs
-        setTimeout(() => {
-            this.setState({
-                items: this.state.items.concat(Array.from({ length: 20 }))
-            });
-        }, 1500);
-
-        this.setState({ isLoading: true })
-        const response = await fetch(`https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=80&page=2`)
-        const coders = await response.json()
-        this.setState({
-            coders: this.state.coders.concat(coders.items)
-        })
-        this.setState({ isLoading: false })
-
-    };
 
     fetchData = async (page) => {
         this.setState({ isLoading: true })
@@ -64,34 +45,26 @@ class Coders extends Component {
 
     render() {
         const { coders, user, isLoading } = this.state;
-        return (
-            <div>
+        return (              
+            <div>            
+            <InfiniteScroll
+                next={this.showMore}
+                hasMore={true}
+                loader={<h4>Loading...</h4>}
+            >
                 <div className="list" >
                     {coders && coders.map((coder) =>
                         <span key={coder.id} onMouseOver={() => this.fetchUser(coder.login)} onMouseLeave={this.clear}>
                             <Coder coder={coder} user={user} />
                         </span>)}
                 </div>
-                <div>
-                    {isLoading && "Loading..."}
-                    <button onClick={this.showMore}>Show more coders</button>
-                </div>
 
-                
-        <InfiniteScroll
-          dataLength={this.state.items.length}
-          next={this.fetchMoreData}
-          hasMore={true}
-          loader={<h4>Loading...</h4>}
-        >
-          {this.state.items.map((i, index) => (
-            <div key={index}>
-              div - #{index}
-            </div>
-          ))}
-        </InfiniteScroll>
-
-            </div>
+            </InfiniteScroll>
+                            <div>
+                            {isLoading && "Loading..."}
+                            <button onClick={this.showMore}>Show more coders</button>
+                        </div>
+                        </div>
         )
     }
 }
