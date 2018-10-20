@@ -19,7 +19,7 @@
 }
 
 .header {
-  height: 270px;
+  height: 220px;
 }
 
 .logo {
@@ -36,7 +36,7 @@
 
 .out {
   stroke: chartreuse;
-  stroke-dasharray: 10, 30;
+  stroke-dasharray: 10, 300;
   stroke-dashoffset: 600;
   animation: out-anim 6s 1s infinite;
 }

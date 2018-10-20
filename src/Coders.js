@@ -17,13 +17,22 @@ class Coders extends Component {
         this.fetchData()
     }
 
-    fetchMoreData = () => {
+    fetchMoreData = async () => {
         // a fake async api call like which sends 20 more records in 1.5 secs
         setTimeout(() => {
             this.setState({
                 items: this.state.items.concat(Array.from({ length: 20 }))
             });
         }, 1500);
+
+        this.setState({ isLoading: true })
+        const response = await fetch(`https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=80&page=2`)
+        const coders = await response.json()
+        this.setState({
+            coders: this.state.coders.concat(coders.items)
+        })
+        this.setState({ isLoading: false })
+
     };
 
     fetchData = async (page) => {
