@@ -18,7 +18,7 @@ class Coders extends Component {
 
     fetchData = async (page) => {
         this.setState({ isLoading: true })
-        console.log('PAGe', page)
+
         const response = await fetch(`https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=80&page=${page}`)
         const coders = await response.json()
         this.setState({
@@ -38,14 +38,8 @@ class Coders extends Component {
     }
 
     showMore = () => {
-        console.log(this.state.page)
         this.fetchData(this.state.page + 1)
-        this.setState((state) => {
-            console.log('uu', this.state.page)
-            this.fetchData(this.state.page)
-            return { page: state.page + 1 }
-        })
-        
+        this.setState({page: this.state.page + 1})
     }
 
     render() {
@@ -55,13 +49,17 @@ class Coders extends Component {
             <InfiniteScroll
                 next={this.showMore}
                 hasMore={true}
-                loader={<h6>What's up?</h6>}
+                loader={null}
             >
                 <div className="list" >
                     {coders && coders.map((coder, i) =>
                         <span key={coder.id} onMouseOver={() => this.fetchUser(coder.login)} onMouseLeave={this.clear}>
                             <Coder coder={coder} user={user} i={i}/>
                         </span>)}
+                </div>
+                <div>
+                    {isLoading && "Loading..."}
+                    <button onClick={this.showMore}>Show more coders</button>
                 </div>
             </InfiniteScroll>
 
