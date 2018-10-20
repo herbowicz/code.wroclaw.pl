@@ -21,10 +21,7 @@ const Coder = ({ coder, user, i }) => (
               <a href={`mailto:${user.email}`}>{user.email}</a>
             </li>
             <li>
-              <a
-                href={`https://${user.blog.split("//").pop()}`}
-                target="_blank"
-              >
+              <a href={`http://${user.blog.split("//").pop()}`} target="_blank">
                 {user.blog.split("//").pop()}
               </a>
             </li>
