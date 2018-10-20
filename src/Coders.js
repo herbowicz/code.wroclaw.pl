@@ -8,7 +8,8 @@ class Coders extends Component {
     coders: [],
     page: 1,
     isLoading: false,
-    user: {}
+    user: {},
+    hasMore: true
   };
 
   componentDidMount() {
@@ -43,6 +44,10 @@ class Coders extends Component {
   showMore = () => {
     this.fetchData(this.state.page + 1);
     this.setState({ page: this.state.page + 1 });
+    if (this.state.page > 9) {
+      console.log("has more false");
+      this.setState({ hasMore: false });
+    }
   };
 
   render() {
@@ -51,7 +56,7 @@ class Coders extends Component {
       <InfiniteScroll
         dataLength={coders}
         next={this.showMore}
-        hasMore={true}
+        hasMore={this.state.hasMore}
         loader={null}
         endMessage={
           <p style={{ textAlign: "center" }}>
@@ -70,10 +75,6 @@ class Coders extends Component {
                 <Coder coder={coder} user={user} i={i} />
               </span>
             ))}
-        </div>
-        <div>
-          {isLoading && "Loading..."}
-          <button onClick={this.showMore}>Show more coders</button>
         </div>
       </InfiniteScroll>
     );
