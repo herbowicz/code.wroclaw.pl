@@ -47,6 +47,7 @@ class Coders extends Component {
         return (              
                     
             <InfiniteScroll
+                dataLength={coders}
                 next={this.showMore}
                 hasMore={true}
                 loader={null}
