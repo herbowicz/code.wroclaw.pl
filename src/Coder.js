@@ -5,9 +5,7 @@ const Coder = ({ coder, user }) => (
   <span className="user">
     {user.login === coder.login && <div>
       <div className="top-info1"></div>
-      <a href={`https://github.com/${user.login}`}>
-        <div className="top-info2"></div>
-      </a>
+      <div className="top-info2"></div>
       <div className="info">
         <a href={`https://github.com/${user.login}`}>
           <ul>
@@ -27,7 +25,7 @@ const Coder = ({ coder, user }) => (
     </div>}
 
     <img id={coder.login}
-      style={{ width: '100px', height: '100px' }}
+      style={{ width: '125px', height: '125px' }}
       src={coder.avatar_url}
       alt="avatar" />
   </span>

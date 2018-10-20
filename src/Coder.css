@@ -13,3 +13,43 @@ h2 {
     font-size: 2em;
     font-weight: bold;
 }
+
+.user {
+    display: inline-block;
+    position: relative;
+}
+
+.top-info1 {
+    position: absolute;
+    height: 125px;
+    width: 125px;
+    left: -125px;
+    background:crimson;
+}
+.top-info2 {
+    position: absolute;
+    height: 125px;
+    width: 125px;
+    left: 125px;
+    background:crimson;
+    z-index: 9;
+}
+.info {
+    position: absolute;
+    height: 355px;
+    width: 355px;
+    color: LawnGreen;
+    font-size: 2.1vh;
+    font-weight: bold;
+    word-wrap: break-word;
+    left: -125px;
+    top: 124px;
+    z-index: 5;
+    padding: 10px;
+    background:rgba(0,28,50,0.6);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}

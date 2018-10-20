@@ -25,12 +25,12 @@
 .logo {
   position: absolute;
   margin: auto;
-  left: 100px;
+  left: 125px;
   right: 0;
   top: -590px;
   bottom: 0;
-  width: 100px;
-  height: 100px;
+  width: 125px;
+  height: 125px;
   overflow: visible;
 }
 

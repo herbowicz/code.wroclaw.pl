@@ -50,7 +50,7 @@ class Coders extends Component {
             <InfiniteScroll
                 next={this.showMore}
                 hasMore={true}
-                loader={<h4>Loading...</h4>}
+                loader={<h6>What's up?</h6>}
             >
                 <div className="list" >
                     {coders && coders.map((coder) =>
