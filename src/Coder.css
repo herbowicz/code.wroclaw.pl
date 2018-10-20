@@ -52,6 +52,11 @@ h3 li a {
     background:rgba(15, 23, 39, 0.8);
     z-index: 9;
 }
+
+.top-info1:hover, .top-info2:hover {
+    display: none;
+}
+
 .info {
     position: absolute;
     height: 356px;
@@ -73,7 +78,7 @@ ul {
 }
 
 .position {
-    border: 2px solid gold;
+    border: 1px solid gold;
     border-radius: 5px;
     padding: 5px 10px;
     color: gold;

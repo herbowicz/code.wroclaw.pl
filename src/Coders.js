@@ -19,7 +19,7 @@ class Coders extends Component {
     fetchData = async (page) => {
         this.setState({ isLoading: true })
 
-        const response = await fetch(`https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=80&page=${page}`)
+        const response = await fetch(`https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=99&page=${page}`)
         const coders = await response.json()
         this.setState({
             coders: this.state.coders.concat(coders.items)
@@ -47,7 +47,7 @@ class Coders extends Component {
         return (              
                     
             <InfiniteScroll
-                dataLength={coders}
+                dataLength={coders.length}
                 next={this.showMore}
                 hasMore={true}
                 loader={null}
