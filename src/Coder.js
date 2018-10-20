@@ -69,7 +69,11 @@ const Coder = ({ coder, user, i }) => (
               </span>
             </li>
           </ul>
-          <div class="position">{i + 1}</div>
+          <div className="thumb" title="Give thumbs up">
+            &#128077;
+          </div>
+
+          <div className="position">{i + 1}</div>
         </div>
       </div>
     )}
