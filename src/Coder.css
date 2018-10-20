@@ -75,10 +75,10 @@ ul {
 .position {
     border: 2px solid gold;
     border-radius: 5px;
-    padding: 7px 15px;
+    padding: 5px 10px;
     color: gold;
     font-weight: bold;
-    font-size: 1.8em;
+    font-size: 1.4em;
     position: absolute;
     right: 20px;
     bottom: 10px;
