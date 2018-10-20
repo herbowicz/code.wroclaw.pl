@@ -1,5 +1,5 @@
 a {
-    color: chartreuse;
+    color: #ccc;
     text-decoration: none;
 }
 
@@ -8,10 +8,28 @@ h2, h3 {
     padding: 0;
 }
 
+h2 a {
+    color: white;
+}
+
 h2 {
     color: white;
-    font-size: 2em;
+    font-size: 2.4em;
     font-weight: bold;
+}
+
+h3 li {
+    color: #ccc;
+}
+
+h3 li a {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+}
+
+.gold, a:hover {
+    color: gold;
 }
 
 .user {
@@ -24,14 +42,14 @@ h2 {
     height: 125px;
     width: 125px;
     left: -125px;
-    background:crimson;
+    background:rgba(15, 23, 39, 0.8);
 }
 .top-info2 {
     position: absolute;
     height: 125px;
     width: 125px;
     left: 125px;
-    background:crimson;
+    background:rgba(15, 23, 39, 0.8);
     z-index: 9;
 }
 .info {
