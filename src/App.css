@@ -4,6 +4,13 @@
   text-align: center;
 }
 
+.main {
+  background: -moz-linear-gradient(left, #87e0fd 0%, #318c66 42%, #5c048c 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #87e0fd 0%,#318c66 42%,#5c048c 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #87e0fd 0%,#318c66 42%,#5c048c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#5c048c',GradientType=1 ); /* IE6-9 */
+}
+
 #fork {
   position: absolute; 
   top: 0; 
@@ -12,11 +19,7 @@
 }
 
 .header {
-  background: -moz-linear-gradient(left, #87e0fd 0%, #318c66 42%, #5c048c 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #87e0fd 0%,#318c66 42%,#5c048c 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #87e0fd 0%,#318c66 42%,#5c048c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#5c048c',GradientType=1 ); /* IE6-9 */
-  height: 150px;
+  height: 270px;
 }
 
 .logo {
@@ -32,18 +35,18 @@
 }
 
 .out {
-  stroke: SlateGrey;
-  stroke-dasharray: 700, 700;
-  stroke-dashoffset: 700;
-  animation: out-anim 5s 1s infinite;
+  stroke: chartreuse;
+  stroke-dasharray: 10, 30;
+  stroke-dashoffset: 600;
+  animation: out-anim 6s 1s infinite;
 }
 
 .in {
-  fill:#393939;
-  stroke: chartreuse;
-  stroke-dasharray: 700, 700;
-  stroke-dashoffset: 700;
-  animation: in-anim 5s 1s infinite;
+  fill: #369;
+  stroke: red;
+  stroke-dasharray: 20, 200;
+  stroke-dashoffset: 200;
+  animation: in-anim 3s 1s infinite;
   z-index: 5;
 }
 
@@ -52,7 +55,7 @@
     fill: #393939;
   }
   50% {
-    fill: green;
+    fill: black;
   }
   75% {
     stroke-dashoffset: 0;
@@ -62,9 +65,23 @@
   }
 }
 
+  
 @keyframes in-anim {
+  0% {
+    fill: darkorchid;
+  }
   25% {
+    fill: green;
+  }
+  50% {
+    fill: crimson;
+  }
+  75% {
     stroke-dashoffset: 0;
+    fill: green;
+  }
+  100% {
+    fill: darkorchid;
   }
 }
 
