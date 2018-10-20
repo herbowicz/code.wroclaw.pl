@@ -1,7 +1,7 @@
 import React from 'react'
 import './Coder.css'
 
-const Coder = ({ coder, user }) => (
+const Coder = ({ coder, user, i }) => (
   <span className="user">
     {user.login === coder.login && <div> 
       <div className="top-info1"></div>
@@ -14,15 +14,16 @@ const Coder = ({ coder, user }) => (
           <li>{user.bio && user.bio.substring(0, 125)}</li>
           <li>{user.email}</li>
           <li><a href={`${user.blog}`} target="_blank">{user.blog}</a></li>
-          <p><h3>
+          <h3><p>
             <li>Repos: <a href={`https://github.com/${user.login}?tab=repositories`} target="_blank"> <b>{user.public_repos}</b></a></li>
             <li>Followers: <a href={`https://github.com/${user.login}?tab=followers`} target="_blank">{user.followers}</a></li>
             <li>Following: <a href={`https://github.com/${user.login}?tab=following`} target="_blank">{user.following}</a></li>
             <li><a href={`https://github.com/${user.login}?tab=stars`}>Stars</a></li>
-          </h3></p>
+          </p></h3>
           <li>Since: {user.created_at.substring(0, 10)}</li>
           <li><span className="gold">{user.hireable ? "Available for hire" : ""}</span></li>
         </ul>
+        <div class="position">{i+1}</div>
       </div>
     </div>}
 

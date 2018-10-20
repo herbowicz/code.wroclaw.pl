@@ -71,3 +71,15 @@ ul {
     list-style-type: none;
     padding: 0;
 }
+
+.position {
+    border: 2px solid gold;
+    border-radius: 5px;
+    padding: 7px 15px;
+    color: gold;
+    font-weight: bold;
+    font-size: 1.8em;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+}

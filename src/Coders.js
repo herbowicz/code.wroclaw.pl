@@ -18,6 +18,7 @@ class Coders extends Component {
 
     fetchData = async (page) => {
         this.setState({ isLoading: true })
+        console.log('PAGe', page)
         const response = await fetch(`https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=80&page=${page}`)
         const coders = await response.json()
         this.setState({
@@ -26,7 +27,7 @@ class Coders extends Component {
         this.setState({ isLoading: false })
     }
 
-    fetchUser = async (id) => {
+    fetchUser = async (id, index) => {
         const response = await fetch(`https://api.github.com/users/${id}?access_token=a4f359c6bae38b0d4de0be60aba753a68a09581f`)
         const user = await response.json()
         this.setState({ user })
@@ -37,34 +38,33 @@ class Coders extends Component {
     }
 
     showMore = () => {
+        console.log(this.state.page)
         this.fetchData(this.state.page + 1)
         this.setState((state) => {
+            console.log('uu', this.state.page)
+            this.fetchData(this.state.page)
             return { page: state.page + 1 }
         })
+        
     }
 
     render() {
         const { coders, user, isLoading } = this.state;
         return (              
-            <div>            
+                    
             <InfiniteScroll
                 next={this.showMore}
                 hasMore={true}
                 loader={<h6>What's up?</h6>}
             >
                 <div className="list" >
-                    {coders && coders.map((coder) =>
+                    {coders && coders.map((coder, i) =>
                         <span key={coder.id} onMouseOver={() => this.fetchUser(coder.login)} onMouseLeave={this.clear}>
-                            <Coder coder={coder} user={user} />
+                            <Coder coder={coder} user={user} i={i}/>
                         </span>)}
                 </div>
-
             </InfiniteScroll>
-                            <div>
-                            {isLoading && "Loading..."}
-                            <button onClick={this.showMore}>Show more coders</button>
-                        </div>
-                        </div>
+
         )
     }
 }
