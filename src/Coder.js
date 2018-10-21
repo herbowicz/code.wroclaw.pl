@@ -16,7 +16,7 @@ const Coder = ({ coder, user, i }) => (
               <a href={`https://github.com/${user.login}`}>{user.login}</a>
             </h2>
             <li>ID: {user.id}</li>
-            <li>{user.bio && user.bio.substring(0, 125)}</li>
+            <li>{user.bio && user.bio.substring(0, 115)}</li>
             <li>
               <a href={`mailto:${user.email}`}>{user.email}</a>
             </li>
