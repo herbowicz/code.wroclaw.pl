@@ -38,18 +38,17 @@ const App = (props) => {
             </header>
             <form onSubmit={handleSubmit}>
                 <label>
-                    City:
-        <input
+                    City <input
                         type="text"
                         value={location}
                         onChange={e => setLocation(e.target.value)}
                     />
                 </label>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Go" />
             </form>
 
             <div className="coders">
-                <Coders location={this.location} />
+                <Coders location={location} />
             </div>
         </div>
     );
