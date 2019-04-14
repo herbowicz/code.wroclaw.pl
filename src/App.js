@@ -103,7 +103,7 @@ const App = (props) => {
                             data.items.map((coder, i) => (
                                 <span
                                     key={coder.id}
-                                    onMouseOver={() => this.fetchUser(coder.login)}
+                                    onMouseOver={() => fetchUser(coder.login)}
                                     onMouseLeave={clear}>
                                     <Coder coder={coder} user={user} i={i} />}
                             </span>
