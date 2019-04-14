@@ -33,10 +33,10 @@ const App = (props) => {
             `https://api.github.com/users/${id}?access_token=a4f359c6bae38b0d4de0be60aba753a68a09581f`
         );
         const user = await response.json();
-        this.setState({ user });
+        this.setUser({ user });
     };
     const clear = () => {
-        this.setState({ user: {} });
+        this.setUser();
     };
 
     const showMore = () => {
