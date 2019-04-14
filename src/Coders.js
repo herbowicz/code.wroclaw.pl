@@ -20,9 +20,10 @@ class Coders extends Component {
         this.setState({ isLoading: true });
 
         const response = await fetch(
-            `https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=99&page=${page}`
+            `https://api.github.com/search/users?q=location:${this.props.location}&per_page=99&page=${page}`
         );
         const coders = await response.json();
+        console.log('coders: ', coders, this.props.location);
         this.setState({
             coders: this.state.coders.concat(coders.items)
         });
@@ -64,7 +65,7 @@ class Coders extends Component {
                     </p>
                 }>
                 <div className="list">
-                    {coders &&
+                    {coders.length > 0 &&
                         coders.map((coder, i) => (
                             <span
                                 key={coder.id}

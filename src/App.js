@@ -1,14 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './App.css';
 import Coders from './Coders';
 
 const App = (props) => {
     const [location, setLocation] = useState("Wrocław");
+    const [data, setData] = useState({ coders: [] });
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await fetch(
+                `https://api.github.com/search/users?q=location:${location}&per_page=99&page=1`,
+            );
+
+            setData(result.data);
+        };
+
+        fetchData();
+    }, []);
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
         console.log(`Changed location to ${location}`)
     }
+
     return (
         <div className="main">
             <header className="header">
@@ -48,7 +62,7 @@ const App = (props) => {
             </form>
 
             <div className="coders">
-                <Coders location={location} />
+                <Coders coders={data} />
             </div>
         </div>
     );
