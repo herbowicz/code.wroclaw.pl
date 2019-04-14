@@ -70,7 +70,7 @@ const Coder = ({ coder, user, i }) => (
             </li>
           </ul>
           <div className="thumb" title="Give thumbs up">
-            &#128077;
+            <span role="img" aria-label="thumb">&#128077;</span>
           </div>
 
           <div className="position">{i + 1}</div>

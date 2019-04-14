@@ -17,8 +17,10 @@ class Coders extends Component {
     }
 
     fetchData = async page => {
-        this.setState({ isLoading: true });
-
+        this.setState({
+            isLoading: true,
+            coders: []
+        })
         const response = await fetch(
             `https://api.github.com/search/users?q=location:${
             this.props.location
@@ -71,7 +73,7 @@ class Coders extends Component {
                         </p>
                     }>
                     <div className="list">
-                        {coders &&
+                        {coders.length > 0 &&
                             coders.map((coder, i) => (
                                 <span
                                     key={coder.id}
