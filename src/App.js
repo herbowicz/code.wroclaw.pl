@@ -3,7 +3,7 @@ import './App.css';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Coder from './Coder';
 
-const App = (props) => {
+const App = () => {
     const [location, setLocation] = useState("Wroclaw");
     const [data, setData] = useState();
     const [user, setUser] = useState({});
