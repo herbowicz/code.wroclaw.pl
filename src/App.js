@@ -33,16 +33,16 @@ const App = (props) => {
             `https://api.github.com/users/${id}?access_token=a4f359c6bae38b0d4de0be60aba753a68a09581f`
         );
         const user = await response.json();
-        this.setUser({ user });
+        setUser(user);
     };
     const clear = () => {
-        this.setUser();
+        setUser({});
     };
 
     const showMore = () => {
         this.fetchData(page => page + 1);
         this.setPage(page + 1);
-        if (this.state.page > 9) {
+        if (page > 9) {
             console.log('has more false');
             this.setHasMore(false);
         }
@@ -105,8 +105,8 @@ const App = (props) => {
                                     key={coder.id}
                                     onMouseOver={() => fetchUser(coder.login)}
                                     onMouseLeave={clear}>
-                                    <Coder coder={coder} user={user} i={i} />}
-                            </span>
+                                    <Coder coder={coder} user={user} i={i} />
+                                </span>
                             ))}
                     </div>
                 </InfiniteScroll>
