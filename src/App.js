@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
 import Coders from './Coders';
-import Disqus from './Disqus';
-import Header from './Header';
 
 class App extends Component {
+    state = {
+        location: 'Paris'
+    }
+
+    changeLocation = location => {
+        this.setState({ location }, () =>
+            console.log('show lo', this.state.location))
+    };
+
     render() {
         return (
             <div className="app">
@@ -34,13 +41,16 @@ class App extends Component {
                             </g>
                         </svg>
                     </header>
-                    <Header city="Berlin" />
                     <div className="title">
-                        HELLO CODERS in Wrocław, Poland!
+                        HELLO CODERS in {this.state.location}!
                     </div>
+                    <button onClick={() => this.changeLocation('Dublin')}>
+                        Change location
+                    </button>
                     <div className="coders">
-                        <Coders />
+                        <Coders location={this.state.location} />
                     </div>
+
                 </div>
             </div>
         );

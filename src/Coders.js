@@ -5,7 +5,6 @@ import './Coders.css';
 
 class Coders extends Component {
     state = {
-        location: 'Vienna',
         coders: [],
         page: 1,
         isLoading: false,
@@ -17,16 +16,12 @@ class Coders extends Component {
         this.fetchData();
     }
 
-    componentDidUpdate() {
-        this.fetchData();
-    }
-
     fetchData = async page => {
         this.setState({ isLoading: true });
 
         const response = await fetch(
             `https://api.github.com/search/users?q=location:${
-            this.state.location
+            this.props.location
             }?&per_page=99&page=${page}`
         );
         const coders = await response.json();
@@ -57,18 +52,13 @@ class Coders extends Component {
         }
     };
 
-    changeLocation = location => {
-        this.setState({ location });
-        console.log('show lo', this.state.location);
-    };
+
 
     render() {
         const { coders, user, isLoading } = this.state;
         return (
             <div>
-                <button onClick={() => this.changeLocation('Dublin')}>
-                    Change city
-                </button>
+
 
                 <InfiniteScroll
                     dataLength={coders}

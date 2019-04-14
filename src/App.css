@@ -34,14 +34,14 @@
 }
 
 .header {
-    height: 220px;
+    height: 160px;
 }
 
 .title {
     width: 80%;
-    height: 5em;
-    line-height: 5em;
-    font-size: 3em;
+    height: 2em;
+    line-height: 2em;
+    font-size: 2em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
         sans-serif;
     color: magenta;
