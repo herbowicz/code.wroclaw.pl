@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Coders from './Coders';
 import Disqus from './Disqus';
+import Header from './Header';
 
 class App extends Component {
     render() {
@@ -33,8 +34,11 @@ class App extends Component {
                             </g>
                         </svg>
                     </header>
+                    <Header city="Berlin" />
+                    <div className="title">
+                        HELLO CODERS in Wrocław, Poland!
+                    </div>
                     <div className="coders">
-                        HELLO CODERS!
                         <Coders />
                     </div>
                 </div>
@@ -43,4 +47,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default App; //default 

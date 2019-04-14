@@ -1,89 +1,112 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
 
 .app {
-  text-align: center;
+    text-align: center;
 }
 
 .main {
-  background: -moz-linear-gradient(left, #87e0fd 0%, #318c66 42%, #5c048c 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #87e0fd 0%,#318c66 42%,#5c048c 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #87e0fd 0%,#318c66 42%,#5c048c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#5c048c',GradientType=1 ); /* IE6-9 */
+    background: -moz-linear-gradient(
+        left,
+        #87e0fd 0%,
+        #318c66 42%,
+        #5c048c 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+        left,
+        #87e0fd 0%,
+        #318c66 42%,
+        #5c048c 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+        to right,
+        #87e0fd 0%,
+        #318c66 42%,
+        #5c048c 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#5c048c',GradientType=1 ); /* IE6-9 */
 }
 
 #fork {
-  position: absolute; 
-  top: 0; 
-  right: 0; 
-  border: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
 }
 
 .header {
-  height: 220px;
+    height: 220px;
+}
+
+.title {
+    width: 80%;
+    height: 5em;
+    line-height: 5em;
+    font-size: 3em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+        sans-serif;
+    color: magenta;
+    background: rgba(123, 32, 22, 0.2);
+    margin: 0 auto;
 }
 
 .logo {
-  position: absolute;
-  margin: auto;
-  left: 125px;
-  right: 0;
-  top: -590px;
-  bottom: 0;
-  width: 125px;
-  height: 125px;
-  overflow: visible;
+    position: absolute;
+    margin: auto;
+    left: 125px;
+    right: 0;
+    top: -590px;
+    bottom: 0;
+    width: 125px;
+    height: 125px;
+    overflow: visible;
 }
 
 .out {
-  stroke: chartreuse;
-  stroke-dasharray: 10, 300;
-  stroke-dashoffset: 600;
-  animation: out-anim 6s 1s infinite;
+    stroke: chartreuse;
+    stroke-dasharray: 10, 300;
+    stroke-dashoffset: 600;
+    animation: out-anim 6s 1s infinite;
 }
 
 .in {
-  fill: #369;
-  stroke: red;
-  stroke-dasharray: 20, 200;
-  stroke-dashoffset: 200;
-  animation: in-anim 3s 1s infinite;
-  z-index: 5;
+    fill: #369;
+    stroke: red;
+    stroke-dasharray: 20, 200;
+    stroke-dashoffset: 200;
+    animation: in-anim 3s 1s infinite;
+    z-index: 5;
 }
 
 @keyframes out-anim {
-  0% {
-    fill: #393939;
-  }
-  50% {
-    fill: black;
-  }
-  75% {
-    stroke-dashoffset: 0;
-  }
-  100% {
-    fill: #393939;
-  }
+    0% {
+        fill: #393939;
+    }
+    50% {
+        fill: black;
+    }
+    75% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        fill: #393939;
+    }
 }
 
-  
 @keyframes in-anim {
-  0% {
-    fill: darkorchid;
-  }
-  25% {
-    fill: green;
-  }
-  50% {
-    fill: green;
-  }
-  75% {
-    stroke-dashoffset: 0;
-    fill: green;
-  }
-  100% {
-    fill: darkorchid;
-  }
+    0% {
+        fill: darkorchid;
+    }
+    25% {
+        fill: green;
+    }
+    50% {
+        fill: green;
+    }
+    75% {
+        stroke-dashoffset: 0;
+        fill: green;
+    }
+    100% {
+        fill: darkorchid;
+    }
 }
-
-
-
