@@ -40,11 +40,11 @@ const App = (props) => {
     };
 
     const showMore = () => {
-        this.fetchData(page => page + 1);
-        this.setPage(page + 1);
+        // fetchData(page => page + 1);
+        setPage(page + 1);
         if (page > 9) {
             console.log('has more false');
-            this.setHasMore(false);
+            setHasMore(false);
         }
     };
 
