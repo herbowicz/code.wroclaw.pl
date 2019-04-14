@@ -17,14 +17,10 @@ class Coders extends Component {
     }
 
     fetchData = async page => {
-        this.setState({
-            isLoading: true,
-            coders: []
-        })
+        this.setState({ isLoading: true });
+
         const response = await fetch(
-            `https://api.github.com/search/users?q=location:${
-            this.props.location
-            }?&per_page=99&page=${page}`
+            `https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=99&page=${page}`
         );
         const coders = await response.json();
         this.setState({
@@ -54,39 +50,31 @@ class Coders extends Component {
         }
     };
 
-
-
     render() {
-        const { coders, user, isLoading } = this.state;
+        const { coders, user } = this.state;
         return (
-            <div>
-
-
-                <InfiniteScroll
-                    dataLength={coders}
-                    next={this.showMore}
-                    hasMore={this.state.hasMore}
-                    loader={null}
-                    endMessage={
-                        <p style={{ textAlign: 'center' }}>
-                            <b>Yay! You have seen it all</b>
-                        </p>
-                    }>
-                    <div className="list">
-                        {coders.length > 0 &&
-                            coders.map((coder, i) => (
-                                <span
-                                    key={coder.id}
-                                    onMouseOver={() =>
-                                        this.fetchUser(coder.login)
-                                    }
-                                    onMouseLeave={this.clear}>
-                                    <Coder coder={coder} user={user} i={i} />
-                                </span>
-                            ))}
-                    </div>
-                </InfiniteScroll>
-            </div>
+            <InfiniteScroll
+                dataLength={coders}
+                next={this.showMore}
+                hasMore={this.state.hasMore}
+                loader={null}
+                endMessage={
+                    <p style={{ textAlign: 'center' }}>
+                        <b>Yay! You have seen it all</b>
+                    </p>
+                }>
+                <div className="list">
+                    {coders &&
+                        coders.map((coder, i) => (
+                            <span
+                                key={coder.id}
+                                onMouseOver={() => this.fetchUser(coder.login)}
+                                onMouseLeave={this.clear}>
+                                <Coder coder={coder} user={user} i={i} />
+                            </span>
+                        ))}
+                </div>
+            </InfiniteScroll>
         );
     }
 }
