@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
-import Coders from './Coders';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import Coder from './Coder';
 
 const App = (props) => {
-    const [location, setLocation] = useState("Wrocław");
-    const [data, setData] = useState({ coders: [] });
+    const [location, setLocation] = useState("Wroclaw");
+    const [data, setData] = useState();
+    const [user, setUser] = useState({});
+    const [page, setPage] = useState(1);
+    const [hasMore, setHasMore] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await fetch(
-                `https://api.github.com/search/users?q=location:${location}&per_page=99&page=1`,
+            const response = await fetch(
+                `https://api.github.com/search/users?q=location:${location}&per_page=99&page=${page}`,
             );
-
-            setData(result.data);
+            const responseJson = await response.json();
+            setData(responseJson);
         };
 
         fetchData();
@@ -23,6 +27,28 @@ const App = (props) => {
         console.log(`Changed location to ${location}`)
     }
 
+
+    const fetchUser = async (id, index) => {
+        const response = await fetch(
+            `https://api.github.com/users/${id}?access_token=a4f359c6bae38b0d4de0be60aba753a68a09581f`
+        );
+        const user = await response.json();
+        this.setState({ user });
+    };
+    const clear = () => {
+        this.setState({ user: {} });
+    };
+
+    const showMore = () => {
+        this.fetchData(page => page + 1);
+        this.setPage(page + 1);
+        if (this.state.page > 9) {
+            console.log('has more false');
+            this.setHasMore(false);
+        }
+    };
+
+    console.log(data)
     return (
         <div className="main">
             <header className="header">
@@ -62,7 +88,28 @@ const App = (props) => {
             </form>
 
             <div className="coders">
-                <Coders coders={data} />
+                <InfiniteScroll
+                    dataLength={data}
+                    next={showMore}
+                    hasMore={hasMore}
+                    loader={null}
+                    endMessage={
+                        <p style={{ textAlign: 'center' }}>
+                            <b>Yay! You have seen it all</b>
+                        </p>
+                    }>
+                    <div className="list">
+                        {data && data.items.length > 0 &&
+                            data.items.map((coder, i) => (
+                                <span
+                                    key={coder.id}
+                                    onMouseOver={() => this.fetchUser(coder.login)}
+                                    onMouseLeave={clear}>
+                                    <Coder coder={coder} user={user} i={i} />}
+                            </span>
+                            ))}
+                    </div>
+                </InfiniteScroll>
             </div>
         </div>
     );
