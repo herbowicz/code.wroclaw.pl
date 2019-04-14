@@ -5,20 +5,22 @@ import Coder from './Coder';
 
 const App = () => {
     const [location, setLocation] = useState("Wroclaw");
-    const [data, setData] = useState();
+    const [data, setData] = useState([]);
     const [user, setUser] = useState({});
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch(
-                `https://api.github.com/search/users?q=location:${location}&per_page=99&page=${page}`,
-            );
-            const responseJson = await response.json();
-            setData(responseJson);
-        };
+    const fetchData = async () => {
+        const response = await fetch(
+            `https://api.github.com/search/users?q=location:${location}&per_page=99&page=${page}`,
+        );
+        const responseJson = await response.json();
+        const items = responseJson.items;
+        console.log(items)
+        setData([...data, ...items]);
+    };
 
+    useEffect(() => {
         fetchData();
     }, []);
 
@@ -26,7 +28,6 @@ const App = () => {
         evt.preventDefault();
         console.log(`Changed location to ${location}`)
     }
-
 
     const fetchUser = async (id, index) => {
         const response = await fetch(
@@ -40,7 +41,7 @@ const App = () => {
     };
 
     const showMore = () => {
-        // fetchData(page => page + 1);
+        fetchData(page => page + 1);
         setPage(page + 1);
         if (page > 9) {
             console.log('has more false');
@@ -99,8 +100,8 @@ const App = () => {
                         </p>
                     }>
                     <div className="list">
-                        {data && data.items.length > 0 &&
-                            data.items.map((coder, i) => (
+                        {data && data.length > 0 &&
+                            data.map((coder, i) => (
                                 <span
                                     key={coder.id}
                                     onMouseOver={() => fetchUser(coder.login)}
