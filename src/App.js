@@ -77,7 +77,7 @@ const App = () => {
                     </g>
                 </svg>
             </header>
-            <form onSubmit={handleSubmit}>
+            {/* <form onSubmit={handleSubmit}>
                 <label>
                     City <input
                         type="text"
@@ -86,7 +86,7 @@ const App = () => {
                     />
                 </label>
                 <input type="submit" value="Go" />
-            </form>
+            </form> */}
 
             <div className="coders">
                 <InfiniteScroll
