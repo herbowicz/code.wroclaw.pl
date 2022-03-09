@@ -4,7 +4,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import Coder from './Coder';
 
 const App = () => {
-    const [location, setLocation] = useState("Wroclaw");
+    const [location, setLocation] = useState("Wrocław");
     const [data, setData] = useState([]);
     const [user, setUser] = useState({});
     const [page, setPage] = useState(1);
